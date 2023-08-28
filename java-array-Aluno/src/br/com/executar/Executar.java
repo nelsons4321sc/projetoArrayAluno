@@ -14,9 +14,9 @@ public class Executar {
 		//referêncua	//intância
 		Aluno aluno1 = new Aluno();
 		
-		for(int pos =1; pos<=2; pos++) {
+		for(int pos =1; pos<=4; pos++) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina "+pos+" ?");
-			String nomeNota = JOptionPane.showInputDialog("Nome da nota "+pos+" ?");
+			String nomeNota = JOptionPane.showInputDialog("Nota do Aluno "+pos+" ?");
 			
 			Disciplina disciplina = new Disciplina();
 			disciplina.setDisciplina(nomeDisciplina);
@@ -27,10 +27,22 @@ public class Executar {
 		
 		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina ?");
 		
+		
 		if(escolha == 0) {
-			String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina: 1 ou 2??");
-			aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - 1);
+			
+			int contRemover = 0;
+			//foi adicionada essa variável para não estourar o array com um número estático -1
+			int posicao = 1;
+			
+			while(contRemover == 0){
+				String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina: 1, 2, 3 ou 4??");
+				aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao);
+				//se torna dinámico
+				posicao ++;
+				contRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover??");
+			}
 		}
+		
 				
 		aluno1.setNome(nome);
 		System.out.println(aluno1.getNome());
