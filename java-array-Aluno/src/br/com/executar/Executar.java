@@ -61,12 +61,24 @@ public class Executar {
 		for (Aluno aluno : alunos) {
 			if(aluno.getNome().equalsIgnoreCase("nelson")) {
 				
+				alunos.remove(aluno);
+			break;
+			}else {
 				System.out.println(aluno.getNome());
 				System.out.println("Media do Aluno: "+ aluno.getMediaNota());
 				System.out.println("Resultado: "+ aluno.getAlunoAprovado());
 				System.out.println("---------------------------------------------------------------------");
 			}
+		}
 		
+		for (Aluno aluno : alunos) {
+			System.out.println("Alunos que sobraram na lista");
+			System.out.println(aluno.getNome());
+			System.out.println("E suas matérias são: ");
+			
+			for(Disciplina disciplina : aluno.getDisciplinas()) {
+				System.out.println(disciplina.getDisciplina());
+			}
 		
 		}
 		
