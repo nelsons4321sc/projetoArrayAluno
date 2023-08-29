@@ -59,11 +59,14 @@ public class Executar {
 		}
 			
 		for (Aluno aluno : alunos) {
+			if(aluno.getNome().equalsIgnoreCase("nelson")) {
+				
+				System.out.println(aluno.getNome());
+				System.out.println("Media do Aluno: "+ aluno.getMediaNota());
+				System.out.println("Resultado: "+ aluno.getAlunoAprovado());
+				System.out.println("---------------------------------------------------------------------");
+			}
 		
-			System.out.println(aluno.getNome());
-			System.out.println("Media do Aluno: "+ aluno.getMediaNota());
-			System.out.println("Resultado: "+ aluno.getAlunoAprovado());
-			System.out.println("---------------------------------------------------------------------");
 		
 		}
 		
