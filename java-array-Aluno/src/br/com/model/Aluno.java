@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import br.com.constante.StatusAluno;
+
 public class Aluno extends Pessoa{
 	
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
@@ -35,12 +37,12 @@ public class Aluno extends Pessoa{
 		double media = this.getMediaNota();
 		if(media >= 5) {
 			if(media >=7) {
-				return "APROVADO";
+				return StatusAluno.APROVADO;
 			}else {
-				return "Recuperação";
+				return StatusAluno.RECUPERACAO;
 			}
 		} else {
-			return "REPROVADO";
+			return StatusAluno.REPROVADO;
 		}
 	}
 
