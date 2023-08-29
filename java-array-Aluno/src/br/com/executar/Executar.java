@@ -26,7 +26,7 @@ public class Executar {
 			
 			aluno1.setNome(nome);
 			
-			for(int pos =1; pos<=2; pos++) {
+			for(int pos =1; pos<=1; pos++) {
 				String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina "+pos+" ?");
 				String nomeNota = JOptionPane.showInputDialog("Valor da Nota"+pos+" ?");
 				
@@ -61,12 +61,33 @@ public class Executar {
 		for(int pos = 0; pos < alunos.size(); pos ++) {
 			
 			Aluno aluno = alunos.get(pos);
+			if(aluno.getNome().equalsIgnoreCase("Nelson")) {
+				
+				Aluno trocar = new Aluno();
+				trocar.setNome(" nome "+aluno.getNome()+ " foi trocado");
+				
+				Disciplina disciplina = new Disciplina();
+				disciplina.setDisciplina("Matemática");
+				disciplina.setNota(8.2);
+				
+				trocar.getDisciplinas().add(disciplina);
+				
+				alunos.set(pos, trocar);
+				aluno = alunos.get(pos);
+			}
+			
+			
+			
+			
 			
 			System.out.println("Aluno "+aluno.getNome());
+			System.out.println("Media do Aluno: "+ aluno.getMediaNota());
 			System.out.println("Resultado: "+ aluno.getAlunoAprovado());
 						
-			for(Disciplina disciplina : aluno.getDisciplinas() ) {
-				System.out.println(" Sua Matéria: "+disciplina.getDisciplina() + " e Nota= "+disciplina.getNota());
+			for(int posd = 0;  posd < aluno.getDisciplinas().size(); posd ++ ) {
+				
+				Disciplina disc = aluno.getDisciplinas().get(posd);
+				System.out.println(" Sua Matéria: "+disc.getDisciplina() + " e Nota= "+disc.getNota());
 			}
 			System.out.println("---------------------------------------------------------------------");
 		}
