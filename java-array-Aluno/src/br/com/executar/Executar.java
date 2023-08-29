@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import br.com.constante.StatusAluno;
 import br.com.model.Aluno;
 import br.com.model.Disciplina;
 
@@ -16,7 +17,11 @@ public class Executar {
 		
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
-		for(int qtd=1; qtd<=2; qtd++) {
+		List<Aluno> alunosAprovados = new ArrayList<Aluno>();
+		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
+		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
+		
+		for(int qtd=1; qtd<=4; qtd++) {
 		
 		
 			String nome = JOptionPane.showInputDialog("Qual o nome do aluno "+qtd+ "?" );
@@ -57,7 +62,36 @@ public class Executar {
 			
 			alunos.add(aluno1);
 		}
+		
+		for (Aluno aluno : alunos) {
+			if(aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.APROVADO)	) {
+				alunosAprovados.add(aluno);
+			} else
+				if(aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
+				alunosRecuperacao.add(aluno);	
+				}else {
+					alunosReprovados.add(aluno);
+			}
+		}
+		
+		
+		System.out.println("------------------Lista de Alunos Aprovados------------------------------");
+		for(Aluno aluno1 : alunosAprovados) {
+			System.out.println("Resultado = "+aluno1.getAlunoAprovado()+" com média = "+ aluno1.getMediaNota());
+		}
+		
+		System.out.println("------------------Lista de Alunos Recuperação------------------------------");
+		for(Aluno aluno1 : alunosRecuperacao) {
+			System.out.println("Resultado = "+aluno1.getAlunoAprovado()+" com média = "+ aluno1.getMediaNota());
+		}
+		
+		System.out.println("------------------Lista de Alunos Reprovados------------------------------");
+		for(Aluno aluno1 : alunosReprovados) {
+			System.out.println("Resultado = "+aluno1.getAlunoAprovado()+" com média = "+ aluno1.getMediaNota());
+		}
+		
 		//vericando a posição do aluno
+		/*
 		for(int pos = 0; pos < alunos.size(); pos ++) {
 			
 			Aluno aluno = alunos.get(pos);
@@ -104,7 +138,8 @@ public class Executar {
 				System.out.println("---------------------------------------------------------------------");
 			}
 		}
-		*/		
+		*/
+		
 	}	
 
 }
